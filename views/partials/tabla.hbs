@@ -1,0 +1,23 @@
+
+{{#if products.length}}
+    <div>
+        <table>
+            <tr>
+                <th>Nombre</th>
+                <th>Precio</th>
+                <th>Descripción</th>
+                <th>Foto</th>
+            </tr>
+            {{#each products}}
+            <tr>
+                <td>{{name}}</td>
+                <td>${{price}}</td>
+                <td>{{desc}}</td>
+                <td>{{url}}</td>
+            </tr>
+            {{/each}}
+        </table>
+    </div>
+{{else}}
+    <h3>No hay productos para listar</h1>
+{{/if}}

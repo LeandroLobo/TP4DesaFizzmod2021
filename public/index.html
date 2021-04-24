@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TP4: API Rest</title>
+</head>
+<body>
+    <h1>TP4</h1>
+    <form action="/ingreso" method="post" autocomplete="off">
+        <fieldset>
+            <legend>Nuevo Producto</legend>
+            <div class="input-group">
+                <label for="name">Nombre: </label>
+                <input type="text" name="name" id="name" required>
+            </div>
+            <div class="input-group">
+                <label for="price">Precio: $</label>
+                <input type="number" name="price" id="price" required>
+            </div>
+            <div class="input-group">
+                <label for="desc">Descripción: </label>
+                <input type="text" name="desc" id="desc" required>
+            </div>
+            <div class="input-group">
+                <label for="url">URL de la imagen:</label>
+                <input type="text" name="url" id="url" required>
+            </div>
+            <input type="submit" value="Agregar">
+        </fieldset>
+    </form>
+    <div>
+        <a href="/set-correo">Configurar Dirección de Correo</a>
+        <a href="/listar">Ver Listado de Productos</a>
+    </div>
+</body>
+</html>

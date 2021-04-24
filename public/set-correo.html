@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Setear Correo</title>
+</head>
+<body>
+    <h2>Configurar dirección de correo</h2>
+    <form action="/set-correo" method="post" autocomplete="off">
+        <fieldset>
+            <legend>Inserte una dirección de email</legend>
+            <div class="input-group">
+                <label for="email">Nuevo Email: </label>
+                <input type="email" name="email" id="email" required>
+            </div>
+            <input type="submit" value="Cambiar dirección de correo">
+        </fieldset>
+    </form>
+    <a href="/">Volver</a>
+</body>
+</html>

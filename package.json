@@ -1,0 +1,25 @@
+{
+  "name": "tp4",
+  "version": "1.0.0",
+  "description": "TP#4 Desafizzmod2021",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "keywords": [],
+  "author": "Leandro Lobo",
+  "license": "MIT",
+  "dependencies": {
+    "nodemailer": "^4.7.0",
+    "@hapi/joi": "^17.1.1",
+    "express": "^4.17.1",
+    "mongoose": "^5.12.5",
+    "express-handlebars": "^5.3.0"
+  },
+  "engines": {
+    "node": ">=14.0.0",
+    "npm": ">=6.0.0"
+  }
+}
