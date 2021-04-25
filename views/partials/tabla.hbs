@@ -1,6 +1,5 @@
-
-{{#if products.length}}
-    <div>
+<div class="content-block">
+    {{#if products.length}}
         <table>
             <tr>
                 <th>Nombre</th>
@@ -17,7 +16,7 @@
             </tr>
             {{/each}}
         </table>
-    </div>
-{{else}}
-    <h3>No hay productos para listar</h1>
-{{/if}}
+    {{else}}
+        <p class="ERROR">No hay productos para listar</p>
+    {{/if}}
+</div>

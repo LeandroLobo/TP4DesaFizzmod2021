@@ -6,6 +6,8 @@ import model from './lib/models.js';
 import sendEmail from './lib/mailer.js';
 import initEmail from './lib/initEmail.js';
 import validateEmail from './lib/validateEmail.js';
+import dotenv from 'dotenv';
+dotenv.config();
 
 const app = express();
 
@@ -60,10 +62,10 @@ app.post('/set-correo', async (req,res) => {
 /*********************************************************
  * Connecting to database & running server
  *********************************************************/
-app.set('PORT', process.env.PORT || 8888);
+app.set('PORT', process.env.PORT);
 //=> Connecting to MongoDB
-mongoose.connect('mongodb://localhost/basetp4', {
-//mongoose.connect('mongodb+srv://Leandro:0600mongo@cluster0.giktc.mongodb.net/basetp4?retryWrites=true&w=majority', {
+mongoose.connect(process.env.MONGO_LOCAL_STRING, {
+//mongoose.connect(process.env.MONGO_ATLAS_STRING, {
     useNewUrlParser: true,
     useUnifiedTopology: true
 }, err => {

@@ -1,3 +1,7 @@
+# dependencies
 node_modules/
 correo.data
 TP4.pdf
+
+# api keys
+.env
