@@ -2,4 +2,79 @@
 
 body{
     font-family: 'Poppins', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+}
+form, fieldset{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+legend{
+    color:mediumslateblue;
+}
+.input-group label{
+    display: block;
+    width: max-content;
+    font-size: 0.8rem;
+    padding: 0;
+    margin-bottom: -10px;
+    margin-left: 5px;
+    padding: 0 5px;
+    position: relative;
+    z-index: 1;
+    color:mediumslateblue;
+    background-color: white;
+}
+.input-group input{
+    width: 300px;
+    height: 1.2rem;
+    font-size: 1rem;
+    padding-top: 6px;
+}
+input[type="submit"]{
+    height: 1.8rem;
+    margin-top: 10px;
+    font-weight: bold;
+    border: 2px solid black;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.link-group{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+}
+.link-group a{
+    text-decoration: none;
+    color:mediumslateblue;
+    font-weight: bold;
+    margin: 2px 5px;
+}
+.ERROR{
+    color: firebrick;
+}
+.content-block{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+img{
+    max-height: 80px;
+}
+td{
+    border: 1px solid #777;
+    font-size: 0.8rem;
+    text-align: center;
+}
+@media all and (max-width: 500px) {
+    html{
+        font-size: 13px;
+    }
 }

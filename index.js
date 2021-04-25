@@ -63,14 +63,11 @@ app.post('/set-correo', async (req,res) => {
  * Connecting to database & running server
  *********************************************************/
 app.set('PORT', process.env.PORT);
-//=> Connecting to MongoDB
-mongoose.connect(process.env.MONGO_LOCAL_STRING, {
-//mongoose.connect(process.env.MONGO_ATLAS_STRING, {
+mongoose.connect(process.env.MONGO_ATLAS_STRING, {
     useNewUrlParser: true,
     useUnifiedTopology: true
 }, err => {
     if(err) throw new Error(`Connection error in database: ${err}`);
-    //=> Serving app
     console.log('Database connected');
     const server = app.listen(app.get('PORT'), () => {
         console.log('\n-------------------------------------');
