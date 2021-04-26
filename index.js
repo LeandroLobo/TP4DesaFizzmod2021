@@ -19,7 +19,7 @@ app.set('views', './views');
 app.set('view engine', 'hbs');
 
 app.get('/listar', async (req,res) => {
-    const products = await model.product.find({}, (err) => {
+    const products = await model.product.find({}, err => {
         if(err) throw new Error(`Reading error: ${err}`);
     }).lean();// using .lean() to get a json object (instead of a mongoose one)
     console.log('Sending collection to /listar\n');
@@ -35,12 +35,12 @@ app.post('/ingreso', (req,res) => {
     newProduct.save(async err => {
         if(err) throw new Error(`Writing error: ${err}`);
         console.log('New product added to database\n');
-        res.redirect('/');
         //=> Consulting collection length to send email
-        const products = await model.product.find({}, (err) => {
+        const products = await model.product.find({}, err => {
             if(err) throw new Error(`Reading error: ${err}`);
         }).lean();
         if(products.length%10 === 0) sendEmail(products);
+        res.redirect('/');
     });
 });
 
@@ -60,9 +60,9 @@ app.post('/set-correo', async (req,res) => {
     }
 });
 
-/*********************************************************
+/******************************************
  * Connecting to database & running server
- *********************************************************/
+ ******************************************/
 app.set('PORT', process.env.PORT);
 //mongoose.connect(process.env.MONGO_LOCAL_STRING, {
 mongoose.connect(process.env.MONGO_ATLAS_STRING, {
