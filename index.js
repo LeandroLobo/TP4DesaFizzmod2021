@@ -63,7 +63,8 @@ app.post('/set-correo', async (req,res) => {
 app.set('PORT', process.env.PORT || 8888);
 //=> Connecting to MongoDB
 mongoose.connect('mongodb://localhost/basetp4', {
-//mongoose.connect('mongodb+srv://Leandro:0600mongo@cluster0.giktc.mongodb.net/basetp4?retryWrites=true&w=majority', {
+//mongoose.connect('mongodb://Leandro:0600mongo@cluster0-shard-00-00.giktc.mongodb.net:27017,cluster0-shard-00-01.giktc.mongodb.net:27017,cluster0-shard-00-02.giktc.mongodb.net:27017/myFirstDatabase?ssl=true&replicaSet=atlas-mnij6f-shard-0&authSource=admin&retryWrites=true&w=majority', {
+mongoose.connect(MONGO_ATLAS_STRING, {
     useNewUrlParser: true,
     useUnifiedTopology: true
 }, err => {

@@ -1,0 +1,1 @@
+//mongoose.connect('mongodb://Leandro:0600mongo@cluster0-shard-00-00.giktc.mongodb.net:27017,cluster0-shard-00-01.giktc.mongodb.net:27017,cluster0-shard-00-02.giktc.mongodb.net:27017/myFirstDatabase?ssl=true&replicaSet=atlas-mnij6f-shard-0&authSource=admin&retryWrites=true&w=majority', {
