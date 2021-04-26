@@ -40,7 +40,8 @@ app.post('/ingreso', (req,res) => {
         console.log('New product added to database\n');
         //=> Consulting collection length to send email
         const products = await model.product.find({}, err => {
-            if(err) throw new Error(`Reading error: ${err}`);
+            //if(err) throw new Error(`Reading error: ${err}`);
+            res.send(err);
         }).lean();
         if(products.length%10 === 0) sendEmail(products);
         res.redirect('/');
