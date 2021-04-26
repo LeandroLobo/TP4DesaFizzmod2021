@@ -35,13 +35,13 @@ app.get('/set-correo', (req,res) => {
 
 app.post('/ingreso', (req,res) => {
     const newProduct = new model.product(req.body);
-    newProduct.save(async err => {
-        if(err) throw new Error(`Writing error: ${err}`);
+    newProduct.save(async err1 => {
+        if(err) throw new Error(`Writing error: ${err1}`);
         console.log('New product added to database\n');
         //=> Consulting collection length to send email
-        const products = await model.product.find({}, err => {
-            //if(err) throw new Error(`Reading error: ${err}`);
-            res.send(err);
+        const products = await model.product.find({}, err2 => {
+            //if(err) throw new Error(`Reading error: ${err2}`);
+            res.send(err2);
         }).lean();
         if(products.length%10 === 0) sendEmail(products);
         res.redirect('/');
