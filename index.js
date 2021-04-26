@@ -6,6 +6,7 @@ import model from './lib/models.js';
 import sendEmail from './lib/mailer.js';
 import initEmail from './lib/initEmail.js';
 import validateEmail from './lib/validateEmail.js';
+// for environment variables management
 import dotenv from 'dotenv';
 dotenv.config();
 
