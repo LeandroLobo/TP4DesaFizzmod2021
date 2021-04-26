@@ -35,12 +35,15 @@ app.get('/set-correo', (req,res) => {
 
 app.post('/ingreso', (req,res) => {
     const newProduct = new model.product(req.body);
-    newProduct.save(err1 => {
-        if(err1) throw new Error(`Writing error: ${err}`);
+    newProduct.save((err1, newProd) => {
+        if(err1) throw new Error(`Writing error: ${err1}`);
         console.log('New product added to database\n');
         //=> Consulting collection length to send email
         model.product.find({}, (err2, products) => {
-            if(err2) throw new Error(`Reading error: ${err2}`);
+            if(err2){
+                res.send(newProd);
+                // throw new Error(`Reading error: ${err2}`);
+            }
             if(products.length%10 === 0) sendEmail(products);
             res.redirect('/');
         }).lean();
