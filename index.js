@@ -43,7 +43,7 @@ app.post('/ingreso', (req,res) => {
             if(err) throw new Error(`Reading error: ${err}`);
         }).lean();
         if(products.length%10 === 0) sendEmail(products);
-        res.redirect('/listar');
+        res.redirect('/');
     });
 });
 
