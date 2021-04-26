@@ -21,12 +21,12 @@ app.engine('hbs', handlebars({extname:'.hbs', defaultLayout: 'index.hbs'}));
 app.set('views', './views');
 app.set('view engine', 'hbs');
 
-app.get('/listar', async (req,res) => {
-    const products = await model.product.find({}, err => {
+app.get('/listar', (req,res) => {
+    model.product.find({}, (err, products) => {
         if(err) throw new Error(`Reading error: ${err}`);
+        console.log('Sending collection to /listar\n');
+        res.render('listar', {products});
     }).lean();// using .lean() to get a json object (instead of a mongoose one)
-    console.log('Sending collection to /listar\n');
-    res.render('listar', {products});
 });
 
 app.get('/set-correo', (req,res) => {
@@ -35,16 +35,15 @@ app.get('/set-correo', (req,res) => {
 
 app.post('/ingreso', (req,res) => {
     const newProduct = new model.product(req.body);
-    newProduct.save(async err1 => {
-        if(err) throw new Error(`Writing error: ${err1}`);
+    newProduct.save(err1 => {
+        if(err1) throw new Error(`Writing error: ${err}`);
         console.log('New product added to database\n');
         //=> Consulting collection length to send email
-        const products = await model.product.find({}, err2 => {
-            //if(err) throw new Error(`Reading error: ${err2}`);
-            res.send(err2);
+        model.product.find({}, (err2, products) => {
+            if(err2) throw new Error(`Reading error: ${err2}`);
+            if(products.length%10 === 0) sendEmail(products);
+            res.redirect('/');
         }).lean();
-        if(products.length%10 === 0) sendEmail(products);
-        res.redirect('/');
     });
 });
 
