@@ -6,9 +6,12 @@ import model from './lib/models.js';
 import sendEmail from './lib/mailer.js';
 import initEmail from './lib/initEmail.js';
 import validateEmail from './lib/validateEmail.js';
-// for environment variables management
-import dotenv from 'dotenv';
-dotenv.config();
+/****************************************
+ * for environment variables management
+ * dependencies => "dotenv": "^8.2.0",
+ */
+// import dotenv from 'dotenv';
+// dotenv.config();
 
 const app = express();
 
