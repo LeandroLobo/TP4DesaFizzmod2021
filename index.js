@@ -14,7 +14,7 @@ const app = express();
 
 app.use(express.static('public'));
 app.use(express.urlencoded({extended: true}));
-app.engine('hbs', handlebars({extname:'.hbs', defaultLayout: 'index.hbs'}) );
+app.engine('hbs', handlebars({extname:'.hbs', defaultLayout: 'index.hbs'}));
 app.set('views', './views');
 app.set('view engine', 'hbs');
 
@@ -40,7 +40,7 @@ app.post('/ingreso', (req,res) => {
             if(err) throw new Error(`Reading error: ${err}`);
         }).lean();
         if(products.length%10 === 0) sendEmail(products);
-        res.redirect('/');
+        res.redirect('/listar');
     });
 });
 
